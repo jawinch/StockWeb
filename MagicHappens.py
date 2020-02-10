@@ -4,7 +4,10 @@ import Requests #E
 link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
 
 #class of current stock price: "symbol-page-header__pricing-price"
-  
+def handle_starttag(tag,class,attrs):
+  if tag == "meta" and class == "symbol-page-header__pricing-price":
+    currentValue = class.contents
+
 def main():
   # instantiate the parser and feed it some HTML
   parser = MyHTMLParser()
