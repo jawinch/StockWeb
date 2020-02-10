@@ -1,3 +1,9 @@
+from bs4 import BeautifulSoup #E
+import Requests #E
+
+ link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
+
+
 def main():
   # instantiate the parser and feed it some HTML
   parser = MyHTMLParser()
