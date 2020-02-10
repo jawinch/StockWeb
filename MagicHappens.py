@@ -5,20 +5,18 @@ link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
 
 #class of current stock price: "symbol-page-header__pricing-price"
 # @Ethan, rewrite using beautiful soup stuff, this might also be complete bs and I don't know what I'm talking about
-def handle_starttag(tag,class,attrs):
-  if tag == "span" and class == "symbol-page-header__pricing-price":
-    previousValue = currentValue
-    currentValue = class.contents
+def handle_starttag(tag,class,attrs): #B
+  if tag == "span" and class == "symbol-page-header__pricing-price": #B
+    previousValue = currentValue #B
+    currentValue = class.contents #B
 
-def main():
-  # instantiate the parser and feed it some HTML
-  parser = MyHTMLParser()
+def main(): #B
+  parser = MyHTMLParser() #B
     
-  # open the sample HTML file and read it
-  f = open("samplehtml.html")
-  if f.mode == "r":
-    contents = f.read() # read the entire file
-    parser.feed(contents)
+  f = open("samplehtml.html") #B
+  if f.mode == "r": #B
+    contents = f.read() #B
+    parser.feed(contents) #B
 
 if __name__ == "__main__":
   main();
