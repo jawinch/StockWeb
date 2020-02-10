@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup #E
 import Requests #E
 
-link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
-
 #class of current stock price: "symbol-page-header__pricing-price"
 # @Ethan, rewrite using beautiful soup stuff, this might also be complete bs and I don't know what I'm talking about
 def handle_starttag(tag,class,attrs): #B
@@ -11,6 +9,7 @@ def handle_starttag(tag,class,attrs): #B
     currentValue = class.contents #B
 
 def main(): #B
+  link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
   parser = MyHTMLParser() #B
     
   f = open("samplehtml.html") #B
