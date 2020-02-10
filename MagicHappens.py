@@ -7,6 +7,7 @@ link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
 # @Ethan, rewrite using beautiful soup stuff, this might also be complete bs and I don't know what I'm talking about
 def handle_starttag(tag,class,attrs):
   if tag == "span" and class == "symbol-page-header__pricing-price":
+    previousValue = currentValue
     currentValue = class.contents
 
 def main():
