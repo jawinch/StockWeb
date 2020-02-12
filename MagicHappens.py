@@ -10,6 +10,7 @@ def handle_starttag(tag,class,attrs): #B
 
 def main(): #B
   link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
+  #link = requests.get(global link) #E
   parser = MyHTMLParser() #B
     
   f = open("samplehtml.html") #B
