@@ -5,8 +5,8 @@ import Requests #E
 # @Ethan, rewrite using beautiful soup stuff, this might also be complete bs and I don't know what I'm talking about
 def handle_starttag(tag,class,attrs): #B
   if tag == "span" and class == "symbol-page-header__pricing-price": #B
-    previousValue = currentValue #B
-    currentValue = class.contents #B
+    global previousValue = currentValue #B
+    global currentValue = class.contents #B
 
 def main(): #B
   link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
