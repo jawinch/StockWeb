@@ -1,19 +1,24 @@
-import os
 from twilio.rest import Client
+from input.py import client
+from input.py import accountSID
+from input.py import authToken
+from input.py import to
+from input.py import from_
+#from output.py import timePrevious
+#from output.py import percentDifference
 
-auth_token =  "9ac2fcd49949b7464ebb7990e2f80226" #os.environ["twillio_token"]
-account_sid = "AC490240393f307819b0706cb4040cd82f" #os.environ["twillio_account"]
-percent_difference = 5
-time_previous = "15:30"
+percentDifference = 5
+timePrevious = "15:30"
 
-client = Client(account_sid, auth_token)
+client = Client(accountSid, authToken)
 
 message = client.messages.create(
     to = "+15039533843", #os.environ["phone"],
     from_= "+18587077533",
     body = "The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
 )
-if (percent_difference >= 5):
+if (percentDifference >= 5):
     print(message.sid)
+  
 
     #"The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
