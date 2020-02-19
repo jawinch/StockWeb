@@ -8,9 +8,6 @@ def main():
   while (len(phoneNumber) != 10 or not phoneNumber.isdigit()):
   	print("Phone number should be 10 numbers")
   	phoneNumber = input("Phone Number: ") #b
-  while (len(phoneNumber) != 10 or not phoneNumber.isdigit()):
-  	print("Phone number should be 10 numbers")
-  	phoneNumber = input("Phone Number: ") #b
   link = input("NASDAQ Website Link: ") #E 
 
   client = Client(accountSID, authToken)
