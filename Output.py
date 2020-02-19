@@ -4,8 +4,8 @@ from input.py import accountSID
 from input.py import authToken
 from input.py import to
 from input.py import from_
-#from output.py import timePrevious
-#from output.py import percentDifference
+#from MagicHappens.py import timePrevious
+#from MagicHappens.py import percentDifference
 
 percentDifference = 5
 timePrevious = "15:30"
