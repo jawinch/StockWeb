@@ -1,4 +1,4 @@
-import twillio.rest import Client
+from twillio.rest import Client
 
 def main():
   
