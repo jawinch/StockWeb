@@ -1,0 +1,119 @@
+from twilio.rest import Client
+
+def input():
+  
+	accountSID = input("Account SID: ") #b
+
+	authToken = input("Authorization Token: ") #b
+
+	phoneNumber = input("Phone Number: ") #b
+	twilioPhone = input("Twilio Number: ")
+	while (len(phoneNumber) != 10 or not phoneNumber.isdigit()):
+  		print("Phone number should be 10 numbers")
+  		phoneNumber = input("Phone Number: ") #b
+	while (len(twilioPhone) != 10 or not twilioPhone.isdigit()):
+  		print("Twilio number should be 10 numbers")
+  		twilioPhone = input("Twilio Number: ") #b
+
+	link = input("NASDAQ Website Link: ") #E 
+
+	client = Client(os.accountSID,os.authToken) #j
+	message = client.messages.create( #j
+  		to = phoneNumber, #j
+  		from_ = twilioPhone, #j
+  		body = "Did you ever hear the tragedy of Darth Plagueis?(Look at command prompt)") #j
+	print(message.sid)# j
+
+	messageReceived = input("Fear leads to anger. Anger leads to hate. Did you receive this message?('yes' or 'no')") #b
+
+	def ask(): #b
+  		if (messageReceived == "yes"): #b
+  			print("Thanks for using the sytem.") #b
+  		elif (messageReceived == "no"): #b
+  			main() #b
+  		else: #b
+  			ask() #b
+
+#if __name__ == "__main__":
+	
+input();
+
+# from bs4 import BeautifulSoup #E
+# import Requests #E
+
+# #class of current stock price: "symbol-page-header__pricing-price"
+# # @Ethan, rewrite using beautiful soup stuff, this might also be complete bs and I don't know what I'm talking about
+# def handle_starttag(tag,class,attrs): #B
+#   if tag == "span" and class == "symbol-page-header__pricing-price": #B
+#     global previousValue = currentValue #B
+#     global currentValue = class.contents #B
+
+# def (): #B
+#   link = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
+#   #link = requests.get(global link) #E
+#   parser = MyHTMLParser() #B
+    
+#   f = open("samplehtml.html") #B
+#   if f.mode == "r": #B
+#     contents = f.read() #B
+#     parser.feed(contents) #B
+
+# if __name__ == "__main__":
+#   main();
+# #basil
+def magic():
+	from bs4 import BeautifulSoup #E
+	import requests #E
+	from time import sleep #E
+	##data = '<span class="symbol-page-header__pricing-price">$899.41</span>'
+	##soup = BeautifulSoup(data)
+	##t = soup.find('span',{'class': 'symbol-page-header__pricing-price'})
+	##print (t.text)
+	page = requests.get('https://www.nasdaq.com/market-activity/stocks/tsla') #E
+	soup = BeautifulSoup(page.content, 'html.parser') #E
+	currentValue = soup.find("span", class_="symbol-page-header__pricing-price") #E
+
+	##sleep(1) #Waits the program for X seconds #E
+	##newprice = soup.find("span", class_="symbol-page-header__pricing-price") #newprice E
+
+	##while True (price-5) < newprice < (price+5):
+	##  sleep(5)
+	##  newprice = soup.find("span", class_="symbol-page-header__pricing-price") #newprice E
+	##else:
+	##  break
+	##return newprice
+	##return price
+	print(currentValue) #E
+
+
+magic()
+
+
+def output():
+	from twilio.rest import Client
+	from input.py import client
+	from input.py import accountSID
+	from input.py import authToken
+	from input.py import phoneNumber
+	from input.py import twilioPhone
+	#from MagicHappens.py import timePrevious
+	#from MagicHappens.py import percentDifference
+
+	percentDifference = 5
+	timePrevious = "15:30"
+
+	client = Client(accountSid, authToken)
+
+	message = client.messages.create(
+    	to = phoneNumber,
+    	from_= twilioPhone,
+    	#body = "The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference)
+    	body = "tepitytest" #first %s is time previous second is percent difference
+	)
+	if (percentDifference >= 5):
+    	print(message.sid)
+  
+
+    #"The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
+
+output()
