@@ -2,8 +2,8 @@ from twilio.rest import Client
 from input.py import client
 from input.py import accountSID
 from input.py import authToken
-from input.py import to
-from input.py import from_
+from input.py import phoneNumber
+from input.py import twilioPhone
 from MagicHappens.py import timePrevious
 from MagicHappens.py import percentDifference
 
@@ -13,8 +13,8 @@ timePrevious = "15:30"
 client = Client(accountSid, authToken)
 
 message = client.messages.create(
-    to = to,
-    from_= from_,
+    to = phoneNumber,
+    from_= twilioPhone,
     body = "The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
 )
 if (percentDifference >= 5):
