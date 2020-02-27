@@ -1,21 +1,33 @@
-from twilio.rest import Client #j
+from twilio.rest import Client
 from bs4 import BeautifulSoup #E
 import requests #E
 from time import sleep #E
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 from timedate import time #j
 import date #j
 import timedelta #j
+
+global phone
+global tPhone
+global accountSID
+global authToken
+global phoneNumber
+global twilioPhone
+global link
+global client
+global message
+global messageReceived
+global options
+global firefox_capabilities
+global browser
+global soup
+global currentValue
+global percentDifference
+global timePrevious
+
 
 def input():
-
-from twilio.rest import Client #j
-from bs4 import BeautifulSoup #E
-import requests #E
-from time import sleep #E
-from timedate import time #j
-import date #j
-import timedelta #j
-
   
 	accountSID = input("Account SID: ") #b
 
@@ -37,7 +49,6 @@ import timedelta #j
 		Phone = 1 #j
 	else:
 		Phone = 0 #j
-
 	link = input("NASDAQ Website Link: ") #E 
 
 	client = Client(accountSID,authToken) #j
@@ -61,16 +72,6 @@ import timedelta #j
 
 def magic():
 
-from twilio.rest import Client #j
-from bs4 import BeautifulSoup #E
-import requests #E
-from time import sleep #E
-from timedate import time #j
-import date #j
-import timedelta #j
-
-
-
 	# The NASDAQ webpage uses javascript to load the stock price. Without javascript enabled,
 	# there's no stock ticker price. In order to get around this, we use Selenium to run Firefox
 	# to load the javascript, and get the stock ticker price.
@@ -79,8 +80,7 @@ import timedelta #j
 	# https://github.com/mozilla/geckodriver/releases and put the binary in this directory.
 
 	# Import selenium libraries
-	from selenium import webdriver
-	from selenium.webdriver.firefox.options import Options
+
 
 	# Run firefox without opening a window (headless mode)
 	options = Options()
@@ -124,16 +124,33 @@ magic()
 
 
 def output():
+	import requests #E
+	from time import sleep #E
+	from timedate import time #j
+	import date #j
+	import timedelta #j
+	percentDifference = 5
+	timePrevious = "15:30"
 
-from twilio.rest import Client #j
-from bs4 import BeautifulSoup #E
-import requests #E
-from time import sleep #E
-from timedate import time #j
-import date #j
-import timedelta #j
+	message = client.messages.create(
+    	to = phoneNumber,
+    	from_= twilioPhone,
+    	#body = "The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference)
+    	body = "tepitytest" #first %s is time previous second is percent difference
+	)
+	if (percentDifference >= 5):
+		print(message.sid)
+  
 
-	from twilio.rest import Client
+    #"The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
+
+output()
+
+def output():
+	from time import sleep #E
+	from timedate import time #j
+	import date #j
+	import timedelta #j
 
 	percentDifference = (abs(percentNow - percentPrevious)/percentNow) * 100
 
