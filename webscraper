@@ -118,7 +118,7 @@ def output():
     	body = "tepitytest" #first %s is time previous second is percent difference
 	)
 	if (percentDifference >= 5):
-    	print(message.sid)
+		print(message.sid)
   
 
     #"The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
