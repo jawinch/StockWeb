@@ -4,9 +4,9 @@ import requests #E
 from time import sleep #E
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-from timedate import time #j
-import date #j
-import timedelta #j
+from datetime import time #j
+from datetime import date #j
+from datetime import timedelta #j
 
 global phone
 global tPhone
@@ -41,11 +41,11 @@ def input():
 	while (len(twilioPhone) != 10 or not twilioPhone.isdigit()):
   		print("Twilio number should be 10 numbers")
   		twilioPhone = input("Twilio Number: ") #b
-	if len(twilioPhone) == 10 && twilioPhone.isdigit()): #j
+	if ((len(twilioPhone) == 10) and twilioPhone.isdigit()): #j
 		tPhone = 1 #j
 	else: #j
 		tPhone = 0 #j	
-	if len(phoneNumber) == 10 && phoneNumber.isdigit()): #j
+	if ((len(phoneNumber) == 10) and phoneNumber.isdigit()): #j
 		Phone = 1 #j
 	else:
 		Phone = 0 #j
@@ -126,8 +126,8 @@ magic()
 def output():
 	import requests #E
 	from time import sleep #E
-	from timedate import time #j
-	import date #j
+	from datetime import time #j
+	from datetime import date #j
 	import timedelta #j
 	percentDifference = 5
 	timePrevious = "15:30"
@@ -148,7 +148,7 @@ output()
 
 def output():
 	from time import sleep #E
-	from timedate import time #j
+	from datetime import time #j
 	import date #j
 	import timedelta #j
 
