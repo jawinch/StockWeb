@@ -31,12 +31,16 @@ import timedelta #j
   		twilioPhone = input("Twilio Number: ") #b
 	if len(twilioPhone) == 10 && twilioPhone.isdigit()): #j
 		tPhone = 1 #j
+	else: #j
+		tPhone = 0 #j	
 	if len(phoneNumber) == 10 && phoneNumber.isdigit()): #j
 		Phone = 1 #j
+	else:
+		Phone = 0 #j
 
 	link = input("NASDAQ Website Link: ") #E 
 
-	client = Client(os.accountSID,os.authToken) #j
+	client = Client(accountSID,authToken) #j
 	message = client.messages.create( #j
   		to = phoneNumber, #j
   		from_ = twilioPhone, #j
