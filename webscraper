@@ -1,9 +1,21 @@
-from twilio.rest import Client
+from twilio.rest import Client #j
 from bs4 import BeautifulSoup #E
 import requests #E
 from time import sleep #E
+from timedate import time #j
+import date #j
+import timedelta #j
 
 def input():
+
+from twilio.rest import Client #j
+from bs4 import BeautifulSoup #E
+import requests #E
+from time import sleep #E
+from timedate import time #j
+import date #j
+import timedelta #j
+
   
 	accountSID = input("Account SID: ") #b
 
@@ -17,6 +29,10 @@ def input():
 	while (len(twilioPhone) != 10 or not twilioPhone.isdigit()):
   		print("Twilio number should be 10 numbers")
   		twilioPhone = input("Twilio Number: ") #b
+	if len(twilioPhone) == 10 && twilioPhone.isdigit()): #j
+		tPhone = 1 #j
+	if len(phoneNumber) == 10 && phoneNumber.isdigit()): #j
+		Phone = 1 #j
 
 	link = input("NASDAQ Website Link: ") #E 
 
@@ -41,6 +57,13 @@ def input():
 
 def magic():
 
+from twilio.rest import Client #j
+from bs4 import BeautifulSoup #E
+import requests #E
+from time import sleep #E
+from timedate import time #j
+import date #j
+import timedelta #j
 
 
 
@@ -97,30 +120,26 @@ magic()
 
 
 def output():
+
+from twilio.rest import Client #j
+from bs4 import BeautifulSoup #E
+import requests #E
+from time import sleep #E
+from timedate import time #j
+import date #j
+import timedelta #j
+
 	from twilio.rest import Client
-	from input.py import client
-	from input.py import accountSID
-	from input.py import authToken
-	from input.py import phoneNumber
-	from input.py import twilioPhone
-	#from MagicHappens.py import timePrevious
-	#from MagicHappens.py import percentDifference
 
-	percentDifference = 5
-	timePrevious = "15:30"
-
-	client = Client(accountSid, authToken)
+	percentDifference = (abs(percentNow - percentPrevious)/percentNow) * 100
 
 	message = client.messages.create(
     	to = phoneNumber,
     	from_= twilioPhone,
-    	#body = "The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference)
-    	body = "tepitytest" #first %s is time previous second is percent difference
+    	#body = "The percent difference in stock since " +  + " is " + %d + "%" % (time_previous, percent_difference)
+    	body = "The percent difference in stock since " + timePrevious + " is " + percentDifference + "%"
 	)
 	if (percentDifference >= 5):
 		print(message.sid)
-  
-
-    #"The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
-
+#we want this to run multiple times.
 output()
