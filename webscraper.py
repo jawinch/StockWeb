@@ -67,8 +67,9 @@ def input():
   			main() #b
   		else: #b
   			ask() #b
+	magic()
 
-#if __name__ == "__main__":
+
 
 def magic():
 
@@ -114,9 +115,7 @@ def magic():
 
 
 	# print(currentValue) #E
-
-
-magic()
+	output()
 
 
 def output():
@@ -136,27 +135,10 @@ def output():
 	)
 	if (percentDifference >= 5):
 		print(message.sid)
-  
+	time.sleep(120)
+	magic()
 
     #"The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
 
-output()
-
-def output():
-	from time import sleep #E
-	from datetime import time #j
-	import date #j
-	import timedelta #j
-
-	percentDifference = (abs(percentNow - percentPrevious)/percentNow) * 100
-
-	message = client.messages.create(
-    	to = phoneNumber,
-    	from_= twilioPhone,
-    	#body = "The percent difference in stock since " +  + " is " + %d + "%" % (time_previous, percent_difference)
-    	body = "The percent difference in stock since " + timePrevious + " is " + percentDifference + "%"
-	)
-	if (percentDifference >= 5):
-		print(message.sid)
-#we want this to run multiple times.
-output()
+#if __name__ == "__main__":
+input()
