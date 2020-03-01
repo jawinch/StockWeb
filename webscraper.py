@@ -14,7 +14,6 @@ global accountSID
 global authToken
 global phoneNumber
 global twilioPhone
-global link
 global client
 global message
 global messageReceived
@@ -118,7 +117,6 @@ def main():
 		Phone = 1 #j
 	else:
 		Phone = 0 #j
-	link = input("NASDAQ Website Link: ") #E 
 
 	client = Client(accountSID,authToken) #j
 	message = client.messages.create( #j
