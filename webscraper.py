@@ -98,26 +98,22 @@ def magic():
 	soup = BeautifulSoup(browser.page_source, "html.parser")
 	currentValue = soup.find("span", class_="symbol-page-header__pricing-price").text
 
-
-	# to get second data set
-	#browser.get("https://www.nasdaq.com/market-activity/stocks/tsla")
-
 	# Beautiful soup scrape stock ticker price
-	#soup = BeautifulSoup(browser.page_source, "html.parser")
-	#currentValue = soup.find("span", class_="symbol-page-header__pricing-price").text #Change current value
+# 	sleep(15)
+# 	soup = BeautifulSoup(browser.page_source, "html.parser")
+# 	currentValue = soup.find("span", class_="symbol-page-header__pricing-price").text #Change current value
+# 	#while currentvalue is within range, wait X seconds then run code again to get the new value,
+# 	#if its out of range, what do we print?
+# 	while (olderValue-5 <= currentValue <= olderValue+5) == True:
+#  	  sleep(15)
+#  	  soup = BeautifulSoup(browser.page_source, "html.parser")
+#   	  currentValue = soup.find("span", class_="symbol-page-header__pricing-price").text #Change current value
+# 	else:
+#    	 return(currentValue)#did we want something else?
+#    	 break
 
-	##sleep(1) #Waits the program for X seconds #E
-	##newprice = soup.find("span", class_="symbol-page-header__pricing-price") #newprice E
 
-	##while True (price-5) < newprice < (price+5):
-	##  sleep(5)
-	##  newprice = soup.find("span", class_="symbol-page-header__pricing-price") #newprice E
-	##else:
-	##  break
-	##return newprice
-	##return price
-
-	print(currentValue) #E
+	# print(currentValue) #E
 
 
 magic()
