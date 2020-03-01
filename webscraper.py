@@ -27,50 +27,6 @@ global percentDifference
 global timePrevious
 
 
-def input():
-  
-	accountSID = input("Account SID: ") #b
-
-	authToken = input("Authorization Token: ") #b
-
-	phoneNumber = input("Phone Number: ") #b
-	twilioPhone = input("Twilio Number: ")
-	while (len(phoneNumber) != 10 or not phoneNumber.isdigit()):
-  		print("Phone number should be 10 numbers")
-  		phoneNumber = input("Phone Number: ") #b
-	while (len(twilioPhone) != 10 or not twilioPhone.isdigit()):
-  		print("Twilio number should be 10 numbers")
-  		twilioPhone = input("Twilio Number: ") #b
-	if ((len(twilioPhone) == 10) and twilioPhone.isdigit()): #j
-		tPhone = 1 #j
-	else: #j
-		tPhone = 0 #j	
-	if ((len(phoneNumber) == 10) and phoneNumber.isdigit()): #j
-		Phone = 1 #j
-	else:
-		Phone = 0 #j
-	link = input("NASDAQ Website Link: ") #E 
-
-	client = Client(accountSID,authToken) #j
-	message = client.messages.create( #j
-  		to = phoneNumber, #j
-  		from_ = twilioPhone, #j
-  		body = "Did you ever hear the tragedy of Darth Plagueis?(Look at command prompt)") #j
-	print(message.sid)# j
-
-	messageReceived = input("Fear leads to anger. Anger leads to hate. Did you receive this message?('yes' or 'no')") #b
-
-	def ask(): #b
-  		if (messageReceived == "yes"): #b
-  			print("Thanks for using the sytem.") #b
-  		elif (messageReceived == "no"): #b
-  			main() #b
-  		else: #b
-  			ask() #b
-	magic()
-
-
-
 def magic():
 
 	# The NASDAQ webpage uses javascript to load the stock price. Without javascript enabled,
@@ -140,5 +96,47 @@ def output():
 
     #"The percent difference in stock since " + %s + " is " + %d + "%" % (time_previous, percent_difference) #first %s is time previous second is percent difference
 
-#if __name__ == "__main__":
-input()
+def main():
+  
+	accountSID = input("Account SID: ") #b
+
+	authToken = input("Authorization Token: ") #b
+
+	phoneNumber = input("Phone Number: ") #b
+	twilioPhone = input("Twilio Number: ")
+	while (len(phoneNumber) != 10 or not phoneNumber.isdigit()):
+  		print("Phone number should be 10 numbers")
+  		phoneNumber = input("Phone Number: ") #b
+	while (len(twilioPhone) != 10 or not twilioPhone.isdigit()):
+  		print("Twilio number should be 10 numbers")
+  		twilioPhone = input("Twilio Number: ") #b
+	if ((len(twilioPhone) == 10) and twilioPhone.isdigit()): #j
+		tPhone = 1 #j
+	else: #j
+		tPhone = 0 #j	
+	if ((len(phoneNumber) == 10) and phoneNumber.isdigit()): #j
+		Phone = 1 #j
+	else:
+		Phone = 0 #j
+	link = input("NASDAQ Website Link: ") #E 
+
+	client = Client(accountSID,authToken) #j
+	message = client.messages.create( #j
+  		to = phoneNumber, #j
+  		from_ = twilioPhone, #j
+  		body = "Did you ever hear the tragedy of Darth Plagueis?(Look at command prompt)") #j
+	print(message.sid)# j
+
+	messageReceived = input("Fear leads to anger. Anger leads to hate. Did you receive this message?('yes' or 'no')") #b
+
+	def ask(): #b
+  		if (messageReceived == "yes"): #b
+  			print("Thanks for using the sytem.") #b
+  		elif (messageReceived == "no"): #b
+  			main() #b
+  		else: #b
+  			ask() #b
+	magic()
+
+if __name__ == "__main__":
+  main()
