@@ -1,1 +1,1 @@
- https://awesomesamiam.github.io/StockWeb/.
+https://jawinch.github.io/StockWeb/
