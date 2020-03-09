@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+}
+
+a:link {
+  color: red;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: pink;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: yellow;
+  text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+  text-decoration: underline;
+}
